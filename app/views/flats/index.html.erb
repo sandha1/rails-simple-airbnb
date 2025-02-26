@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="my-3">All our flats (<%= (Flat.count) %>)</h1>
+
+  <div class="row">
+    <% @flats.each do |flat| %>
+    <div class="card col-4">
+      <div class="card-body">
+        <h5 class="card-title"><%= flat.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+        <p class="card-text"><%= flat.description %></p>
+        <p class="card-text"><%= flat.number_of_guests %> <i class="fa-solid fa-user-group"></i></p>
+        <p><%= flat.price_per_night %> <i class="fa-solid fa-euro-sign"></i></p>
+        <%= link_to("More info", flat_path(flat), class:"btn btn-primary") %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>
+
+<%= link_to "Add a new flat", new_flat_path %>
